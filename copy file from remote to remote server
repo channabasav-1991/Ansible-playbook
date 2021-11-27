@@ -1,0 +1,12 @@
+- hosts: 172.31.7.83
+  tasks:
+  - name: Fetch file from host1 to ansible machine
+    fetch:
+      src: /tmp/test.txt
+      dest: /home/ansible/test.txt
+- hosts: 172.31.7.67
+  tasks:
+  - name: Copy file from ansible machine to host2 server
+    copy:
+      src: /home/ansible/test.txt
+      dest: /tmp/test.txt
