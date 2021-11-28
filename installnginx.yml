@@ -9,14 +9,23 @@
     yum:
       name: "{{packageName}}"
       state: latest
+    tags:
+    - install
   - name: print varaibles
     debug:
       msg: "variables name value: {{name}} location value: {{location}}"
+    tags:
+    - print
   - name: Copy index.html
     template:
       src: index.html
-      dest: /usr/share/nginx/html/index.html  
+      dest: /usr/share/nginx/html/index.html
+    tags:
+    - copy
   - name: Start nginx service
+    tags:
+    - start
+    -install
     service:
       name: nginx
       state: started
