@@ -1,0 +1,12 @@
+- hosts: 172.31.7.83
+  become: true
+  tasks:
+  - name: uninstall httpd
+    yum:
+      name: httpd
+      state: absent
+      autoremove: yes
+  - name: Remove www folder
+    file:
+      path: /var/www
+      state: absent
