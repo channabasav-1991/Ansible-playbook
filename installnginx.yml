@@ -1,12 +1,19 @@
 - hosts: appServers
   become: true
+  vars:
+    packageName= nginx
+    name= Ansible
+    location= channabasavraichur
   tasks:
   - name: Install nginx
     yum:
-      name: nginx
+      name: "{{packageName}}"
       state: latest
+  - name: print varaibles
+    debug:
+      msg: "variables name value: {{name}} location value: {{location}}"
   - name: Copy index.html
-    copy:
+    template:
       src: index.html
       dest: /usr/share/nginx/html/index.html  
   - name: Start nginx service
