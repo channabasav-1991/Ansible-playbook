@@ -1,9 +1,9 @@
 - hosts: appServers
   become: true
   vars:
-    packageName= nginx
-    name= Ansible
-    location= channabasavraichur
+    packageName: nginx
+    name: Ansible
+    location: channabasavraichur
   tasks:
   - name: Install nginx
     yum:
