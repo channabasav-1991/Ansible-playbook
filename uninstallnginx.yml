@@ -1,0 +1,8 @@
+- hosts: appServers
+  become: true
+  tasks:
+  - name: uninstall nginx
+    yum:
+      name: ngink
+      state: absent
+      
