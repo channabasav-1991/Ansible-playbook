@@ -25,7 +25,7 @@
   - name: Start nginx service
     tags:
     - start
-    -install
+    - install
     service:
       name: nginx
       state: started
