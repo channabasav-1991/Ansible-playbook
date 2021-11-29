@@ -22,10 +22,11 @@
       dest: /usr/share/nginx/html/index.html
     tags:
     - copy
+  handlers:
   - name: Start nginx service
+    service:
+      name: nginx
+      state: restarted
     tags:
     - start
     - install
-    service:
-      name: nginx
-      state: started
