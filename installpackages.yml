@@ -1,0 +1,13 @@
+- hosts: all
+  become: true
+  tasks:
+  - name: install packages
+    ignore_errors: yes
+    yum:
+      name: "{{item}}"
+      state: present
+    with_items:
+    - wget
+    - git
+    - vim
+    - unzip
