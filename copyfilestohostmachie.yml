@@ -1,0 +1,11 @@
+- hosts: all
+  become: true
+  tasks:
+  - name: copy files
+    copy:
+      src: "{{item.source}}"
+      dest: "{{item.destination}}"
+      mode: "{{item.mode}}"
+    with_items:
+    - {"source": "test.txt","destination": "/tmp/test.txt","mode": "0700"}
+    - {"source": "abc.xml","destination": "/opt/abc.xml","mode": "0777"}
